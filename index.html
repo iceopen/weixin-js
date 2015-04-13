@@ -7,16 +7,79 @@
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
     <link href="http://cdn.amazeui.org/amazeui/2.3.0/css/amazeui.min.css" rel="stylesheet" type="text/css">
-    <link href="__STATIC__/2015/wenjuan/css/common.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
-HH
+WXSHARE
 <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 <script src="http://cdn.amazeui.org/amazeui/2.3.0/js/amazeui.min.js" type="text/javascript"></script>
-<script src="WeixinApi.js" type="text/javascript"></script>
+<script src="http://mhcdn.oss-cn-hangzhou.aliyuncs.com/js/WeixinApi.js" type="text/javascript"></script>
 <script>
-    
+    var signPackage;
+    $.ajax({
+        async: false,
+        type: "get",
+        url: "/Rest/Weixin/getJsSign?url=" + encodeURIComponent(location.href),
+        dataType: "json",
+        cache: false,
+        success: function (msg) {
+            var rtobj = (msg instanceof Object) ? msg : JSON.parse(msg);
+            signPackage = rtobj.data;
+        }
+    });
+
+    wx.config({
+        debug: true,
+        appId: signPackage.appid,
+        timestamp: signPackage.timestamp + "",
+        nonceStr: signPackage.noncestr,
+        signature: signPackage.signature,
+        jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
+        ]
+    });
+    wx.ready(function () {
+        // 初始化wx对象
+        WeixinApi.ready(wx);
+
+        // 微信分享的数据
+        var wxData = {
+            "imgUrl": "https://www.baidu.com/img/bdlogo.png",// 分享图标
+            "link": "http://www.iceinto.cn", //分享链接
+            "desc": "家有WX小鬼", //分享描述
+            "title": "家有WX小鬼" // 分享标题
+        };
+
+        // 分享的回调函数
+        var wxCallbacks = {
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                alert("success");
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+                alert("cancel");
+            },
+            fail: function () {
+                //接口调用失败时执行的回调函数
+            },
+            complete: function () {
+                // 接口调用完成时执行的回调函数，无论成功或失败都会执行。
+            },
+            trigger: function () {
+                //监听Menu中的按钮点击时触发的方法，该方法仅支持Menu中的相关接口。
+            }
+        };
+
+        // 用户点开右上角popup菜单后，点击分享给好友，会执行下面这个代码
+        WeixinApi.shareToFriend(wxData, wxCallbacks);
+
+        // 点击分享到朋友圈，会执行下面这个代码
+        WeixinApi.shareToTimeline(wxData, wxCallbacks);
+
+    });
 </script>
 </body>
 </html>
