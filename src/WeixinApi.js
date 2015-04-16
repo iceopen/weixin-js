@@ -46,7 +46,7 @@
      * callback:以键值对的形式返回，可用的api值true，不可用为false;如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
      */
     WeixinApi.checkJsApi = function (apiList, callback) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -77,7 +77,7 @@
      * wxCallback.trigger        监听Menu中的按钮点击时触发的方法，该方法仅支持Menu中的相关接口。
      */
     WeixinApi.shareToFriend = function (wxData, wxCallback) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -130,7 +130,7 @@
      * wxCallback.trigger        监听Menu中的按钮点击时触发的方法，该方法仅支持Menu中的相关接口。
      */
     WeixinApi.shareToTimeline = function (wxData, wxCallback) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -180,7 +180,7 @@
      * wxCallback.trigger        监听Menu中的按钮点击时触发的方法，该方法仅支持Menu中的相关接口。
      */
     WeixinApi.shareToWeibo = function (wxData, wxCallback) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -231,7 +231,7 @@
      * wxCallback.trigger        监听Menu中的按钮点击时触发的方法，该方法仅支持Menu中的相关接口。
      */
     WeixinApi.shareToQQ = function (wxData, wxCallback) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -268,7 +268,7 @@
      * 隐藏右上角菜单接口
      */
     WeixinApi.hideOptionMenu = function () {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -279,7 +279,7 @@
      * 显示右上角菜单接口
      */
     WeixinApi.showOptionMenu = function () {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -290,7 +290,7 @@
      * 关闭当前网页窗口接口
      */
     WeixinApi.closeWindow = function () {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -301,7 +301,7 @@
      * 批量隐藏功能按钮接口
      */
     WeixinApi.hideMenuItems = function () {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -314,7 +314,7 @@
      * 批量显示功能按钮接口
      */
     WeixinApi.showMenuItems = function () {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -327,7 +327,7 @@
      * 隐藏所有非基础按钮接口
      */
     WeixinApi.hideAllNonBaseMenuItem = function () {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -338,7 +338,7 @@
      * 显示所有功能按钮接口
      */
     WeixinApi.showAllNonBaseMenuItem = function () {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -363,7 +363,7 @@
      * networkType; // 返回网络类型2g，3g，4g，wifi
      */
     WeixinApi.getNetworkType = function (callback) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -381,7 +381,7 @@
      *
      */
     WeixinApi.chooseImage = function (callback) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -402,7 +402,7 @@
      * callback(String):上传成功的服务器端图片id，通过该id调用downloadImage接口下载图片
      */
     WeixinApi.uploadImage = function (localId, isShowProgressTips, callback) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -424,7 +424,7 @@
      * callback(String):返回图片下载后的本地ID
      */
     WeixinApi.downloadImage = function (serverId, isShowProgressTips, callback) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }
@@ -444,7 +444,7 @@
      * srcList：需要预览的图片链接列表
      */
     WeixinApi.previewImage = function (curSrc, srcList) {
-        if (null == _wx) {
+        if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
         }

@@ -1,0 +1,29 @@
+{
+  "name": "weixinjs",
+  "title": "weixinjs",
+  "description": "weixin-js",
+  "version": "0.0.1",
+  "keywords": [
+    "js",
+    "weixin",
+    "tool"
+  ],
+  "homepage": "http://www.iceinto.www",
+  "author": "iceinto",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allmobilize/amazeui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/allmobilize/amazeui/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.9",
+    "gulp-jshint": "*",
+    "gulp-concat": "*",
+    "gulp-header": "^1.0.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-size": "^1.1.0",
+    "gulp-uglify": "*"
+  }
+}
