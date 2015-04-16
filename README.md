@@ -1,6 +1,6 @@
 声明：由于时间有限，目前仅对微信一部分接口进行了封装，陆续会持续增加封装，敬请关注！
 
-微信公众平台 WeixinApi 感谢[WeixinApi](https://github.com/zxlie/WeixinApi) 因为使用习惯
+微信公众平台 WeixinApi 感谢[WeixinApi](https://github.com/zxlie/WeixinApi) 因为使用习惯，同时也欢迎大家共同来维护
 
 WeixinApi 的诞生
 
