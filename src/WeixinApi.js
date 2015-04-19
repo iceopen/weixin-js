@@ -453,5 +453,29 @@
             urls: srcList // 需要预览的图片链接列表
         });
     };
+    
+    /**
+     * 判断当前网页是否在微信内置浏览器中打开
+     */
+    WeixinApi.openInWeixin = function () {
+        return /MicroMessenger/i.test(navigator.userAgent);
+    };
 
+    /**
+     * 调起微信扫一扫接口
+     * @param callback
+     */
+    WeixinApi.scanQRCode = function (callback) {
+        if (null === _wx) {
+            alert("微信接口对象不能为null");
+            return;
+        }
+        _wx.scanQRCode({
+            needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+            scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+            success: function (res) {
+                callback(res);
+            }
+        });
+    };
 })(window);
