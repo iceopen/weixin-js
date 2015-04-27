@@ -7,14 +7,6 @@
         version: 1.0
     };
 
-    var menuItems = ["menuItem:exposeArticle", "menuItem:setFont", "menuItem:dayMode", "menuItem:nightMode", "menuItem:refresh", "menuItem:profile",
-        //"menuItem:addContact",
-        "menuItem:share:appMessage", "menuItem:share:timeline", "menuItem:share:qq", "menuItem:share:weiboApp", "menuItem:favorite", "menuItem:share:facebook",
-        //"menuItem:jsDebug","menuItem:editTag","menuItem:delete","menuItem:originPage",
-        "menuItem:copyUrl", "menuItem:readMode",
-        //"menuItem:openWithQQBrowser","menuItem:openWithSafari","menuItem:share:email","menuItem:share:brand"
-    ];
-
     window.WeixinApi = WeixinApi;
 
     if (typeof define === 'function' && (define.amd || define.cmd)) {
@@ -299,8 +291,9 @@
 
     /**
      * 批量隐藏功能按钮接口
+     * menuItems 接口列表
      */
-    WeixinApi.hideMenuItems = function () {
+    WeixinApi.hideMenuItems = function (menuItems) {
         if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
@@ -312,8 +305,9 @@
 
     /**
      * 批量显示功能按钮接口
+     * menuItems 接口列表
      */
-    WeixinApi.showMenuItems = function () {
+    WeixinApi.showMenuItems = function (menuItems) {
         if (null === _wx) {
             alert("微信接口对象不能为null");
             return;
@@ -453,7 +447,7 @@
             urls: srcList // 需要预览的图片链接列表
         });
     };
-    
+
     /**
      * 判断当前网页是否在微信内置浏览器中打开
      */
