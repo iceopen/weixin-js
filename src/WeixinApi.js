@@ -128,7 +128,7 @@
         }
 
         _wx.onMenuShareTimeline({
-            title: wxData.title, // 分享标题
+            title: wxData.desc, // 分享标题
             link: wxData.link, // 分享链接
             imgUrl: wxData.imgUrl, // 分享图标
             success: function () {
