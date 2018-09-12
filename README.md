@@ -1,5 +1,7 @@
 声明：由于时间有限，目前仅对微信一部分接口进行了封装，陆续会持续增加封装，敬请关注！
 
+## 当前适应版本 JSSDK【1.4.0】
+
 微信公众平台 WeixinApi 感谢[WeixinApi](https://github.com/zxlie/WeixinApi) 因为使用习惯，同时也欢迎大家共同来维护
 
 WeixinApi 的诞生
@@ -7,11 +9,13 @@ WeixinApi 的诞生
 腾讯官方于2015年1月9日发布了微信的JS-SDK，详细接口可以参考：见[微信JS-SDK说明文档](http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html)
 由于微信官方的接口互相独立，但是在事件使用中，我们可能会是很多接口一起使用，所以直接使用官方的接口比较麻烦，重复代码相对较多。为了更方便的使用，我对官方的接口进行了简单的封装，并开源处理，方便大家使用。
 
-
 快速使用
+
 1、引入js文件
 由于该接口是对微信官方js的封装，需要同时引入微信官方的js-sdk文件和JWeixinApi的js文件。引入如下两个文件：
-jweixin-1.0.0.js
+
+在需要调用JS接口的页面引入如下JS文件，（支持https）：http://res.wx.qq.com/open/js/jweixin-1.4.0.js
+
 WeixinApi.js
 
 2、通过config接口注入权限验证配置
@@ -52,23 +56,10 @@ wx.ready(function(){
         
         // 分享的回调函数
         var wxCallbacks={
-        	success:function(){
+        	success:function(res){
         	  // 用户确认分享后执行的回调函数
         		alert("success");
-        	},
-        	cancel:function(){
-        	  // 用户取消分享后执行的回调函数
-        		alert("cancel");
-        	},
-  		    fail:function(){
-  		    	//接口调用失败时执行的回调函数
-  		    },
-  		    complete:function(){
-  		    	// 接口调用完成时执行的回调函数，无论成功或失败都会执行。
-  		    },
-  		    trigger:function(){
-  		    	//监听Menu中的按钮点击时触发的方法，该方法仅支持Menu中的相关接口。 
-  		    }
+        	}
         };
 	
 		    // 用户点开右上角popup菜单后，点击分享给好友，会执行下面这个代码
@@ -76,12 +67,6 @@ wx.ready(function(){
 
         // 点击分享到朋友圈，会执行下面这个代码
         WeixinApi.shareToTimeline(wxData, wxCallbacks);
-
-        // 点击分享到腾讯微博，会执行下面这个代码
-        WeixinApi.shareToWeibo(wxData, wxCallbacks);
-        
-        //点击分享到QQ，会执行下面这个代码
-		    WeixinApi.shareToQQ(wxData, wxCallbacks);
 	}
 ```
 5、隐藏右上角option menu入口
